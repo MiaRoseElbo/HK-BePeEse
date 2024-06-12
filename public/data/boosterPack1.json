@@ -1,0 +1,14 @@
+[
+    { "id": 1, "image": "evo/evo-1.jpg", "freq": "rare" },
+    { "id": 2, "image": "evo/evo-2.jpg", "freq": "rare" },
+    { "id": 3, "image": "evo/evo-3.jpg", "freq": "rare" },
+    { "id": 4, "image": "evo/evo-4.jpg", "freq": "rare" },
+    { "id": 5, "image": "evo/evo-5.jpg", "freq": "rare" },
+    { "id": 6, "image": "evo/evo-6.jpg", "freq": "rare" },
+    { "id": 7, "image": "evo/evo-7.jpg", "freq": "rare" },
+    { "id": 8, "image": "evo/evo-8.jpg", "freq": "rare" },
+    { "id": 9, "image": "evo/evo-9.jpg", "freq": "rare" },
+    { "id": 10, "image": "evo/evo-10.jpg", "freq": "rare" },
+    { "id": 11, "image": "evo/evo-11.jpg", "freq": "rare" },
+    { "id": 12, "image": "evo/evo-12.jpg", "freq": "rare" }
+]

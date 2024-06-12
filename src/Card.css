@@ -1,0 +1,46 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+    width: 150px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .card:hover {
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .card-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .card-description {
+    font-size: 0.9em;
+    color: #666;
+  }
+
+
+  .holo-effect {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-image: linear-gradient(115deg, transparent 0%, #00e7ff 30%, #ff00e7 70%, transparent 100%);
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    mix-blend-mode: color-dodge;
+    opacity: 0.2;
+    z-index: 1;
+  }

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url(../public/Site-background-dark.webp);
+  background-image: url(Site-background-dark.webp); 
 }
 
 .App-header {

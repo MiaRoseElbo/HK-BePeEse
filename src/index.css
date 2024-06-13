@@ -1,6 +1,6 @@
 @font-face {
   font-family: distro;
-  src: url(/font/DISTRO__.ttf);
+  src: url(../public/font/DISTRO__.ttf);
 }
 
 body {

@@ -142,7 +142,7 @@ const BoosterPack = ({ packType }) => {
 
   useEffect(() => {
     openPack();
-  }, [packType]);
+  }, [openPack, packType]);
 
   return (
     <div className="booster-pack">

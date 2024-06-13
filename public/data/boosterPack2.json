@@ -1,5 +1,0 @@
-[
-    { "id": "EV-001", "image": "url1", "name": "Comun", "description": "Description 1", "rarity": "common" },
-    { "id": 2, "image": "url2", "name": "Infrecuente", "description": "Description 2", "rarity": "uncommon" },
-    { "id": 3, "image": "url3", "name": "Rara", "description": "Description 3", "rarity": "rare" }
-]

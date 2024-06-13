@@ -5,51 +5,6 @@ import './BoosterPack.css';
 const BoosterPack = ({ packType }) => {
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    const openPack = () => {
-      const cardData = generateCardData(packType);
-      if (!cardData.length) return;
-
-      const newPack = [];
-      const rares = cardData.filter((card) => card.rarity === 'rare');
-      const uncommons = cardData.filter((card) => card.rarity === 'uncommon');
-      const commons = cardData.filter((card) => card.rarity === 'common');
-
-      const rates = dropRates || { common: 0, uncommon: 0, rare: 0 };
-
-      const getRandomCards = (cardsArray, count) => {
-        const selectedCards = [];
-        const cardIndexes = new Set();
-        while (cardIndexes.size < count && cardIndexes.size < cardsArray.length) {
-          const randomIndex = Math.floor(Math.random() * cardsArray.length);
-          if (!cardIndexes.has(randomIndex)) {
-            cardIndexes.add(randomIndex);
-            selectedCards.push(cardsArray[randomIndex]);
-          }
-        }
-        return selectedCards;
-      };
-
-      newPack.push(...getRandomCards(rares, rates.rare));
-      newPack.push(...getRandomCards(uncommons, rates.uncommon));
-
-      if ((packType === 'avl' || packType === 'cal') && shkCommonCards.length > 0) {
-        newPack.push(...getRandomCards(shkCommonCards, 6));
-      } else if (rates.common > 0 && commons.length > 0) {
-        newPack.push(...getRandomCards(commons, rates.common));
-      }
-
-      setCards([]);
-      setTimeout(() => {
-        setCards(newPack);
-      }, 0);
-    };
-
-    openPack(); // Call openPack immediately when packType changes
-
-    // Ensure openPack is included in the dependencies array to run when openPack changes
-  }, [packType, dropRates, openPack]);
-
   const packConfigurations = {
     evo: {
       numCards: 255,
@@ -146,6 +101,48 @@ const BoosterPack = ({ packType }) => {
 
   const shkCommonCards = generateCardData('shk').filter((card) => card.rarity === 'common');
 
+  const openPack = () => {
+    const cardData = generateCardData(packType);
+    if (!cardData.length) return;
+
+    const newPack = [];
+    const rares = cardData.filter((card) => card.rarity === 'rare');
+    const uncommons = cardData.filter((card) => card.rarity === 'uncommon');
+    const commons = cardData.filter((card) => card.rarity === 'common');
+
+    const rates = dropRates || { common: 0, uncommon: 0, rare: 0 };
+
+    const getRandomCards = (cardsArray, count) => {
+      const selectedCards = [];
+      const cardIndexes = new Set();
+      while (cardIndexes.size < count && cardIndexes.size < cardsArray.length) {
+        const randomIndex = Math.floor(Math.random() * cardsArray.length);
+        if (!cardIndexes.has(randomIndex)) {
+          cardIndexes.add(randomIndex);
+          selectedCards.push(cardsArray[randomIndex]);
+        }
+      }
+      return selectedCards;
+    };
+
+    newPack.push(...getRandomCards(rares, rates.rare));
+    newPack.push(...getRandomCards(uncommons, rates.uncommon));
+
+    if ((packType === 'avl' || packType === 'cal') && shkCommonCards.length > 0) {
+      newPack.push(...getRandomCards(shkCommonCards, 6));
+    } else if (rates.common > 0 && commons.length > 0) {
+      newPack.push(...getRandomCards(commons, rates.common));
+    }
+
+    setCards([]);
+    setTimeout(() => {
+      setCards(newPack);
+    }, 0);
+  };
+
+  useEffect(() => {
+    openPack();
+  }, [packType]);
 
   return (
     <div className="booster-pack">

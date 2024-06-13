@@ -48,7 +48,7 @@ const BoosterPack = ({ packType }) => {
     openPack(); // Call openPack immediately when packType changes
 
     // Ensure openPack is included in the dependencies array to run when openPack changes
-  }, [packType, openPack]);
+  }, [packType, dropRates, openPack]);
 
   const packConfigurations = {
     evo: {

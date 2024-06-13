@@ -140,6 +140,10 @@ const BoosterPack = ({ packType }) => {
     }, 0);
   };
 
+  useEffect(() => {
+    openPack();
+  }, [packType]);
+
   return (
     <div className="booster-pack">
       <div className="card-container">

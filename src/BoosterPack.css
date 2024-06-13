@@ -1,6 +1,8 @@
 .booster-pack {
     text-align: center;
     margin-top: 20px;
+    margin: auto;
+    width: 1020px;
   }
   
   .card-container {
@@ -15,3 +17,29 @@
     cursor: pointer;
     margin-bottom: 20px;
   }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 150px; /* Adjust size as needed */
+    height: 210px; /* Adjust size as needed */
+    margin: 10px;
+    perspective: 1000px; /* Needed for 3D flip effect */
+  }
+  
+  .flip {
+    animation: flip 0.6s forwards;
+  }
+  
+  @keyframes flip {
+    0% {
+      transform: rotateY(90deg);
+    }
+    100% {
+      transform: rotateY(0);
+    }
+  }
+  

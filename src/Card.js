@@ -1,9 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Card.css';
 
-const Card = ({ image, rarity }) => {
+const Card = ({ id, image, rarity, background, flipDelay }) => {
   const cardRef = useRef(null);
   const holoRef = useRef(null);
+  const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    const flipTimeout = setTimeout(() => {
+      setFlipped(true);
+    }, flipDelay);
+
+    return () => clearTimeout(flipTimeout);
+  }, [flipDelay]);
 
   const handleMouseMove = (event) => {
     const card = cardRef.current;
@@ -35,13 +44,20 @@ const Card = ({ image, rarity }) => {
 
   return (
     <div
-      className="card"
+      className={`card ${flipped ? 'flipped' : ''}`}
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={`/images/${image}`} alt={image} className="card-image" />
-      {rarity === 'rare' && <div ref={holoRef} className="holo-effect" />}
+      <div className="card-inner">
+        <div className="card-front">
+          <img src={`/images/${image}`} alt={image} className="card-image" />
+          {rarity === 'rare' && <div ref={holoRef} className="holo-effect" />}
+        </div>
+        <div className="card-back">
+          <img src={`/images/effects/${background}.png`} alt="Card Back" className="card-image" />
+        </div>
+      </div>
     </div>
   );
 };

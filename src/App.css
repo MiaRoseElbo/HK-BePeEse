@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  background-color: black;
+  background-image: url(../public/Site-background-dark.webp);
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   padding: 20px;
   color: white;
 }
@@ -12,3 +12,15 @@
 main {
   padding: 20px;
 }
+
+.packTypeSelector {
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-column-gap: 1em;
+}
+
+.packTypeSelector img {
+ width: 100%;
+}
+

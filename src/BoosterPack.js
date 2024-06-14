@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Card from './Card';
 import './BoosterPack.css';
 
@@ -65,7 +65,7 @@ const BoosterPack = ({ packType }) => {
 
   const { dropRates } = packConfigurations[packType] || {};
 
-  const generateCardData = (packType) => {
+  const generateCardData = useCallback((packType) => {
     const config = packConfigurations[packType];
     if (!config) return [];
 
@@ -94,14 +94,14 @@ const BoosterPack = ({ packType }) => {
       }
 
       let imageName = `${String(i).padStart(3, '0')}.jpg`;
-      cardData.push({ id: i, image: `${imagePrefix}/${imageName}`,bg, rarity });
+      cardData.push({ id: i, image: `${imagePrefix}/${imageName}`, bg, rarity });
     }
     return cardData;
-  };
+  }, [packConfigurations]);
 
   const shkCommonCards = generateCardData('shk').filter((card) => card.rarity === 'common');
 
-  const openPack = () => {
+  const openPack = useCallback(() => {
     const cardData = generateCardData(packType);
     if (!cardData.length) return;
 
@@ -138,11 +138,11 @@ const BoosterPack = ({ packType }) => {
     setTimeout(() => {
       setCards(newPack);
     }, 0);
-  };
+  }, [generateCardData, packType, dropRates, shkCommonCards]);
 
   useEffect(() => {
     openPack();
-  }, [openPack, packType]);
+  }, []);
 
   return (
     <div className="booster-pack">
@@ -154,7 +154,7 @@ const BoosterPack = ({ packType }) => {
             background={card.bg}
             image={card.image}
             rarity={card.rarity}
-            flipDelay={(index+2) * 100} // Each card will flip one by one with a 100ms delay
+            flipDelay={(index + 2) * 100} // Each card will flip one by one with a 100ms delay
           />
         ))}
       </div>

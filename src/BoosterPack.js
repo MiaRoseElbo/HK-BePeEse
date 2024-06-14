@@ -97,7 +97,7 @@ const BoosterPack = ({ packType }) => {
       cardData.push({ id: i, image: `${imagePrefix}/${imageName}`, bg, rarity });
     }
     return cardData;
-  }, [packConfigurations]);
+  }, []);
 
   const shkCommonCards = generateCardData('shk').filter((card) => card.rarity === 'common');
 

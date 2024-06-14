@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={'/Site-logo.webp'} alt="Logo" />
-        <h1>Simulador de Draft</h1>
+        <h1>Simulador Sellado</h1>
       </header>
       <main>
         <div className="packTypeSelector">

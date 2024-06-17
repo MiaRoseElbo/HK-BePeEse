@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './Card.css';
 
-const Card = ({ id, image, rarity, background, flipDelay }) => {
+const Card = ({ id, image, rarity, background, flipDelay, onClick }) => {
   const cardRef = useRef(null);
   const holoRef = useRef(null);
   const [flipped, setFlipped] = useState(false);
@@ -48,6 +48,7 @@ const Card = ({ id, image, rarity, background, flipDelay }) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
     >
       <div className="card-inner">
         <div className="card-front">

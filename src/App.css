@@ -24,3 +24,32 @@ main {
  width: 100%;
 }
 
+.mode-selector{
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10em;
+}
+
+.mode-selector label {
+  cursor: pointer;
+  color: white;
+}
+
+.mode-selector label:hover {
+  opacity: 1;
+}
+
+.mode-selector input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mode-image {
+  opacity: 0.25; /* Default opacity */
+  transition: opacity 0.3s ease;
+}
+
+.mode-image.selected {
+  opacity: 1;
+}

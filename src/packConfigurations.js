@@ -54,6 +54,13 @@ const packConfigurations = {
     imagePrefix: 'cal',
     dropRates: { uncommon: 4, rare: 1 },
   },
+  promos: {
+    numCards: 100,
+    rareRange: [1, 100],
+    santuarioList: [1, 2, 3, 4, 8,9,10,11,58,59,60,61,62,63,64,65,95],
+    imagePrefix: 'promos',
+    dropRates: { rare: 10 },
+  },
 };
 
 export default packConfigurations;

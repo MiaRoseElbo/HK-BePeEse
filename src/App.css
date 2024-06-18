@@ -25,12 +25,14 @@ main {
 }
 
 .mode-selector{
-  display: inline-grid;
+  /* display: inline-grid;
   grid-template-columns: auto auto;
-  grid-column-gap: 10em;
+  grid-column-gap: 10em; */
 }
 
 .mode-selector label {
+  display: inline-block;
+  padding: 0 2em;
   cursor: pointer;
   color: white;
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import BoosterPack from './BoosterPack';
 import DraftMode from './DraftMode';
+import InspectMode from './InspectMode';
 
 function App() {
   const [packType, setPackType] = useState('evo');
@@ -46,6 +47,15 @@ function App() {
               onChange={handleModeChange}
             />
             <h1 className={mode === 'Draft' ? 'mode-image selected' : 'mode-image'}>Draft</h1>
+          </label>
+          <label key={"Inspect"} className="pack-label">
+            <input
+              type="radio"
+              value="Inspect"
+              checked={mode === 'Inspect'}
+              onChange={handleModeChange}
+            />
+            <h1 className={mode === 'Inspect' ? 'mode-image selected' : 'mode-image'}>Ver Cartas</h1>
           </label>
         </div>
         {mode === 'Sellado' ? (
@@ -100,12 +110,21 @@ function App() {
                 onClick={() => handlePackTypeClick('cal')}
                 className={packType === 'cal' ? 'active' : ''}
               />
+              <img
+                key={'promos'}
+                src={process.env.PUBLIC_URL + '/images/promos.png'}
+                alt="Promos"
+                onClick={() => handlePackTypeClick('promos')}
+                className={packType === 'promos' ? 'active' : ''}
+              />
               {/* Add more images as needed */}
             </div>
             <BoosterPack key={rerenderKey} packType={packType} />
           </div>
-        ) : (
+        ) : mode === 'Draft' ? (
           <DraftMode key={rerenderKey} />
+        ) : (
+          <InspectMode key={rerenderKey} />
         )}
       </main>
     </div>

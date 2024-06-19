@@ -55,9 +55,9 @@ const packConfigurations = {
     dropRates: { uncommon: 4, rare: 1 },
   },
   promos: {
-    numCards: 100,
-    rareRange: [1, 100],
-    santuarioList: [1, 2, 3, 4, 8,9,10,11,58,59,60,61,62,63,64,65,95],
+    numCards: 110,
+    rareRange: [1, 110],
+    santuarioList: [1, 2, 3, 4, 8,9,10,11,41,43,44,45,56,57,58,59,105],
     imagePrefix: 'promos',
     dropRates: { rare: 10 },
   },
